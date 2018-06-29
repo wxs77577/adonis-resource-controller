@@ -68,27 +68,31 @@ class ResourceController {
 
   async view({ Model }) {
     return {
-      fields: _.omitBy(Model.fields, (field, name) => {
+      fields: _.omitBy(Model.fields || {}, (field, name) => {
         return field.viewable === false
       })
     }
   }
 
   async grid({ Model }) {
-    await Model.buildOptions()
+    if (Model.buildOptions) {
+      await Model.buildOptions()
+    }
     return {
       searchModel: {},
-      searchFields: _.pickBy(Model.fields, 'searchable'),
-      fields: _.omitBy(Model.fields, (field, name) => {
+      searchFields: _.pickBy(Model.fields || {}, 'searchable'),
+      fields: _.omitBy(Model.fields || {}, (field, name) => {
         return field.listable === false
       })
     }
   }
 
   async form({ Model }) {
-    await Model.buildOptions()
+    if (Model.buildOptions) {
+      await Model.buildOptions()
+    }
     return {
-      fields: _.omitBy(Model.fields, (field, name) => {
+      fields: _.omitBy(Model.fields || {}, (field, name) => {
         return field.editable === false || ['_id', 'created_at', 'updated_at', '_actions'].includes(name)
       })
     }

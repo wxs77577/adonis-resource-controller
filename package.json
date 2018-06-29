@@ -1,0 +1,26 @@
+{
+  "name": "adonis-resource-controller",
+  "version": "0.1.0",
+  "description": "Restful resource controller for AdonisJs",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wxs77577/adonis-resource-controller.git"
+  },
+  "keywords": [
+    "AdonisJs",
+    "Restful"
+  ],
+  "author": "wu-xuesong@qq.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wxs77577/adonis-resource-controller/issues"
+  },
+  "homepage": "https://github.com/wxs77577/adonis-resource-controller#readme",
+  "dependencies": {
+    "lodash": "^4.17.10"
+  }
+}
